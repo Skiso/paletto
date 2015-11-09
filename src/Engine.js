@@ -2,7 +2,8 @@
 
 var Engine = function () {
 
-// private attributes and methods
-
-// public methods
+    var plateau = new array(6);
+    for(var i =0;i<6;i++ ){
+        plateau[i] = new Array(6);
+    }
 };
