@@ -28,7 +28,7 @@ var Engine = function () {
         var stop =false;
         for(var ligne=0;ligne<6;ligne++){
             for(var colonne=0;colonne<6;colonne++) {
-                if (ligne < 6 && colonne < 6){
+                if (ligne < 6 && colonne < 6 && ligne>0 && colonne>0){
                     if (plateau[ligne][colonne] == plateau[ligne][colonne-1] || plateau[ligne][colonne] == plateau[ligne][colonne+1] ||plateau[ligne][colonne] == plateau[ligne+1][colonne] || plateau[ligne][colonne] == plateau[ligne-1][colonne]) {
                        return false;
                     } else {
