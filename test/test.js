@@ -3,5 +3,12 @@
 var PalettoTestCase = TestCase("PalettoTestCase");
 
 PalettoTestCase.prototype.testStory1 = function () {
-        assertTrue(Engine.init()==0);
+    var e = new Engine();
+    e.initialisation();
+
+    assertEquals("black",e.get_position(0,0));
+    assertEquals("white",e.get_position(0,5));
+    assertEquals("yellow",e.get_position(5,0));
+
+    assertEquals(true,e.test_juxstaposition());
 };
