@@ -1,6 +1,7 @@
 'use strict';
 
 var Engine = function () {
+    var nb_billes = 0;
     var joueur1,joueur2;
     var plateau = new Array(36);
 
@@ -17,7 +18,7 @@ var Engine = function () {
         plateau[3][0] = "red";plateau[3][1] = "black";plateau[3][2] = "red";plateau[3][3] = "green";plateau[3][4] = "blue";plateau[3][5]= "white";
         plateau[4][0] = "white";plateau[4][1] = "green";plateau[4][2] = "yellow";plateau[4][3] = "black";plateau[4][4] = "yellow";plateau[4][5] = "green";
         plateau[5][0] = "yellow";plateau[5][1] = "blue";plateau[5][2] = "black";plateau[5][3] = "red";plateau[5][4] = "green";plateau[5][5] = "black";
-
+       nb_billes = 36;
    };
 
     this.get_couleur = function(ligne,colonne) {
@@ -26,6 +27,11 @@ var Engine = function () {
 
     this.set_couleur_joueur = function(joueur,couleur){
         joueur = couleur;
+        nb_billes = nb_billes -1;
+    };
+
+    this.get_nb_billes = function(){
+        return nb_billes;
     };
 
     this.test_juxstaposition = function(){

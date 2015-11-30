@@ -19,3 +19,14 @@ PalettoTestCase.prototype.testStory2 = function(){
     e.initialisation();
     assertEquals("yellow", e.test_couleur("yellow"));
 }
+
+PalettoTestCase.prototype.testStory3 = function(){
+    var e = new Engine();
+    e.initialisation();
+    assertEquals("yellow", e.test_couleur("yellow"));
+    assertEquals("35", e.get_nb_billes());
+}
+
+PalettoTestCase.prototype.testStory4 = function(){
+
+};
