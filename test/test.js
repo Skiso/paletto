@@ -24,15 +24,19 @@ PalettoTestCase.prototype.testStory3 = function(){
     var e = new Engine();
 
     e.initialisation();
-    e.set_billes_joueur(6,0,1)
+    e.set_billes_joueur(5,0,1);
     assertEquals("35", e.get_nb_billes());
 }
 
 PalettoTestCase.prototype.testStory4 = function(){
     var e = new Engine();
     e.initialisation();
-    assertEquals(true, e.check_nb_voisins(5,1));
-    assertEquals(true, e.check_nb_voisins(3,5));
-    e.set_billes_joueur(6,3,2);
-    e.set_billes_joueur(3,5,2);
+   // e.test_bas(0,0);
+    //e.test_droite(0,0);
+    //e.test_gauche(0,0);
+    //e.test_haut(0,0);
+    assertEquals(true, e.check_nb_voisins(0,0));
+    //assertEquals(true, e.check_nb_voisins(5,5));
+    e.set_billes_joueur(0,0,2);
+   // e.set_billes_joueur(5,5,2);
 };

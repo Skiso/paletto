@@ -64,9 +64,11 @@ var Engine = function () {
     this.set_billes_joueur = function (ligne, colonne, joueur) {
        if(joueur == 1){
            joueur1.push(ligne, colonne);
+
        }else if(joueur == 2){
             joueur2.push(ligne, colonne);
        }
+        plateau[ligne][colonne]='';
         nb_billes = nb_billes -1;
     };
 
@@ -75,7 +77,6 @@ var Engine = function () {
     };
 
     this.test_juxstaposition = function () {
-
         var stop = false;
         for (var ligne = 0; ligne < 6; ligne++) {
             for (var colonne = 0; colonne < 6; colonne++) {
@@ -103,28 +104,28 @@ var Engine = function () {
         }
     };
 
-    var test_gauche= function(ligne,colonne) {
-        var stop = false;
+    var test_gauche= function(ligne,colonne){
+        var stop=false;
         if (ligne < 6 && colonne < 6 && ligne > 0 && colonne > 0) {
-            if (plateau[ligne - 1][colonne] !== 0)
+            if (plateau[ligne][colonne-1] !== 0)
             {
                 stop = true;
-            }else{
+            }
+            else
+            {
                 stop = false;
             }
             return true;
-
         }
     };
-
     var test_droite= function(ligne,colonne){
         var stop=false;
         if (ligne < 6 && colonne < 6 && ligne > 0 && colonne > 0) {
-            if (plateau[ligne + 1][colonne] !== 0)
+            if (plateau[ligne][colonne+1] !== 0)
             {
                 stop = true;
             }
-        else
+            else
             {
                 stop = false;
             }
@@ -135,11 +136,11 @@ var Engine = function () {
     var test_haut= function(ligne,colonne){
         var stop=false;
         if (ligne < 6 && colonne < 6 && ligne > 0 && colonne > 0) {
-            if (plateau[ligne][colonne - 1] !== 0)
+            if (plateau[ligne-1][colonne] !== 0)
             {
                 stop = true;
             }
-                else
+            else
             {
                 stop = false;
             }
@@ -150,11 +151,11 @@ var Engine = function () {
     var test_bas= function(ligne,colonne){
         var stop=false;
         if (ligne < 6 && colonne < 6 && ligne > 0 && colonne > 0) {
-            if (plateau[ligne][colonne + 1] !== 0)
+            if (plateau[ligne-1][colonne] !== 0)
             {
                 stop = true;
             }
-        else
+            else
             {
                 stop = false;
             }
@@ -162,31 +163,35 @@ var Engine = function () {
         }
     };
 
-    this.check_nb_voisins = function(ligne,colonne){
+    this.check_nb_voisins = function(ligne,colonne) {
         var nb_voisins = 0;
 
-        if((test_gauche(ligne,colonne))){
-            nb_voisins +=1;
+        if ((test_gauche(ligne, colonne))) {
+            nb_voisins += 1;
         }
 
-        if((test_droite(ligne,colonne))){
-            nb_voisins+=1;
+        if ((test_droite(ligne, colonne))) {
+            nb_voisins += 1;
         }
 
-        if((test_bas(ligne,colonne))){
-            nb_voisins+=1;
+        if ((test_bas(ligne, colonne))) {
+            nb_voisins += 1;
         }
 
-        if((test_haut(ligne,colonne))){
-            nb_voisins+=1;
+        if ((test_haut(ligne, colonne))) {
+            nb_voisins += 1;
         }
 
-        if(nb_voisins==2){
+        console.log(nb_voisins);
+        if (nb_voisins == 2) {
             return true;
-        }else{
+        } else {
             return false;
+
         }
+        ;
     };
+
 };
 
 
