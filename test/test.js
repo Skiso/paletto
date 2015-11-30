@@ -17,7 +17,7 @@ PalettoTestCase.prototype.testStory2 = function(){
     var e = new Engine();
 
     e.initialisation();
-    assertEquals("yellow", e.test_couleur("yellow"));
+    assertEquals("yellow", e.test_couleur("yellow",1));
 }
 
 PalettoTestCase.prototype.testStory3 = function(){
@@ -30,4 +30,9 @@ PalettoTestCase.prototype.testStory3 = function(){
 
 PalettoTestCase.prototype.testStory4 = function(){
     var e = new Engine();
+    e.initialisation();
+    assertEquals(true, e.check_nb_voisins(5,1));
+    assertEquals(true, e.check_nb_voisins(3,5));
+    e.set_billes_joueur(6,3,2);
+    e.set_billes_joueur(3,5,2);
 };

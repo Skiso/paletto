@@ -1,7 +1,6 @@
 'use strict';
 
-var Engine;
-Engine = function () {
+var Engine = function () {
     var nb_billes = 0;
     var joueur1 = new Array();
     var joueur2 = new Array();
@@ -100,6 +99,91 @@ Engine = function () {
             return couleur;
 
         } else {
+            return false;
+        }
+    };
+
+    var test_gauche= function(ligne,colonne) {
+        var stop = false;
+        if (ligne < 6 && colonne < 6 && ligne > 0 && colonne > 0) {
+            if (plateau[ligne - 1][colonne] !== 0)
+            {
+                stop = true;
+            }else{
+                stop = false;
+            }
+            return true;
+
+        }
+    };
+
+    var test_droite= function(ligne,colonne){
+        var stop=false;
+        if (ligne < 6 && colonne < 6 && ligne > 0 && colonne > 0) {
+            if (plateau[ligne + 1][colonne] !== 0)
+            {
+                stop = true;
+            }
+        else
+            {
+                stop = false;
+            }
+            return true;
+        }
+    };
+
+    var test_haut= function(ligne,colonne){
+        var stop=false;
+        if (ligne < 6 && colonne < 6 && ligne > 0 && colonne > 0) {
+            if (plateau[ligne][colonne - 1] !== 0)
+            {
+                stop = true;
+            }
+                else
+            {
+                stop = false;
+            }
+            return true;
+        }
+    };
+
+    var test_bas= function(ligne,colonne){
+        var stop=false;
+        if (ligne < 6 && colonne < 6 && ligne > 0 && colonne > 0) {
+            if (plateau[ligne][colonne + 1] !== 0)
+            {
+                stop = true;
+            }
+        else
+            {
+                stop = false;
+            }
+            return true;
+        }
+    };
+
+    this.check_nb_voisins = function(ligne,colonne){
+        var nb_voisins = 0;
+
+        if((test_gauche(ligne,colonne))){
+            nb_voisins +=1;
+        }
+
+        if((test_droite(ligne,colonne))){
+            nb_voisins+=1;
+        }
+
+        if((test_bas(ligne,colonne))){
+            nb_voisins+=1;
+        }
+
+        if((test_haut(ligne,colonne))){
+            nb_voisins+=1;
+        }
+
+        if(nb_voisins==2){
+            return true;
+        }else{
             return false;
         }
     };
