@@ -15,18 +15,19 @@ PalettoTestCase.prototype.testStory1 = function () {
 
 PalettoTestCase.prototype.testStory2 = function(){
     var e = new Engine();
-    var joueur1;
+
     e.initialisation();
     assertEquals("yellow", e.test_couleur("yellow"));
 }
 
 PalettoTestCase.prototype.testStory3 = function(){
     var e = new Engine();
+
     e.initialisation();
-    assertEquals("yellow", e.test_couleur("yellow"));
+    e.set_billes_joueur(6,0,1)
     assertEquals("35", e.get_nb_billes());
 }
 
 PalettoTestCase.prototype.testStory4 = function(){
-
+    var e = new Engine();
 };
